@@ -1,9 +1,5 @@
-import React from 'react'
+import React from "react";
 
 export const Stories = () => {
-    return (
-        <div>
-            
-        </div>
-    )
-}
+  return <div className="border-2 h-10 w-full bg-red-200"></div>;
+};
