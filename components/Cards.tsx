@@ -33,11 +33,11 @@ export const Cards = () => {
       />
       <div className="h-15 text-2xl flex flex-row justify-between items-center p-3">
         <div className="w-2/6 flex flex-row justify-evenly">
-          <FontAwesomeIcon icon={faHeart}></FontAwesomeIcon>
-          <FontAwesomeIcon icon={faComment}></FontAwesomeIcon>
-          <FontAwesomeIcon icon={faPaperPlane}></FontAwesomeIcon>
+          <i className="far fa-heart"></i>
+          <i className="far fa-comment"></i>
+          <i className="far fa-paper-plane"></i>
         </div>
-        <FontAwesomeIcon icon={faBookmark}></FontAwesomeIcon>
+        <i className="far fa-bookmark"></i>
       </div>
       <span className="p-3 text-sm font-semibold">15,678 likes</span>
       <span>Good team, best team</span>

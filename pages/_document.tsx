@@ -9,15 +9,14 @@ class MyDocument extends Document {
   render() {
     return (
       <Html>
-        <Head>
+        <Head />
+        <body>
+          <Main />
+          <NextScript />
           <script
             src="https://kit.fontawesome.com/24fbfca73d.js"
             crossOrigin="anonymous"
           ></script>
-        </Head>
-        <body>
-          <Main />
-          <NextScript />
         </body>
       </Html>
     );
