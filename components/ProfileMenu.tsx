@@ -1,9 +1,10 @@
 import React, { FC } from "react";
+import Link from "next/link";
 
 export const ProfileMenu: FC = () => {
   return (
     <nav className="bg-white shadow-md duration-500 w-52 h-52 absolute top-12 right-0 rounded-xl ">
-      <i class="fas fa-chevron-up absolute right-6"></i>
+      <i className="fas fa-chevron-up absolute right-6"></i>
       <ul className="h-full flex flex-col justify-evenly items-start p-2">
         <li>
           <i className="far fa-user-circle"></i> profile
@@ -18,7 +19,9 @@ export const ProfileMenu: FC = () => {
           <i className="fas fa-exchange-alt"></i> swith accounts
         </li>
         <hr />
-        <li className="border-t-2 border-gray-300 w-full">log out</li>
+        <Link href="auth/login">
+          <li className="border-t-2 border-gray-300 w-full">log out</li>
+        </Link>
       </ul>
     </nav>
   );
