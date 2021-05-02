@@ -14,8 +14,9 @@ export const Navbar = () => {
   const handleProfileMenu = () => setShowMenu(!showMenu);
 
   return (
-    <nav className="bg-white border w-full h-14 shadow-sm flex flex-row justify-around items-center p-2 text-2xl sticky top-0 z-10">
+    <nav className="bg-white border w-full h-14 shadow-sm flex flex-row justify-around items-center p-2 text-2xl sticky lg:fixed top-0 z-10">
       <img className="w-28 mt-1" src="/definitive.png" />
+      <input type="text" className="hidden lg:flex rounded-md border-2"></input>
       <Link href="/">
         <FontAwesomeIcon icon={faHome}></FontAwesomeIcon>
       </Link>

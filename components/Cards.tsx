@@ -10,7 +10,7 @@ import React from "react";
 
 export const Cards = () => {
   return (
-    <figure className="mt-7">
+    <figure className="mt-7 lg:w-full lg:border-2 rounded-sm">
       <header className="flex flex-row justify-between p-4">
         <div className="flex flex-row justify-around items-center w-5/12">
           <Image
