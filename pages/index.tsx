@@ -7,8 +7,7 @@ import { Suggestions } from "../components/Suggestions";
 export default function Home() {
   return (
     <div className="bg-gray-100 lg:flex lg:flex-row lg:justify-center">
-      <Navbar />
-      <div className="bg-red-200 lg:w-6/12 lg:mt-14">
+      <div className="lg:w-6/12 lg:mt-14">
         <Stories />
         <Cards />
         <Cards />
