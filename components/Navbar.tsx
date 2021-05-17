@@ -14,20 +14,27 @@ export const Navbar = () => {
   const handleProfileMenu = () => setShowMenu(!showMenu);
 
   return (
-    <nav className="bg-white border w-full h-14 shadow-sm flex flex-row justify-around items-center p-2 text-2xl sticky lg:fixed top-0 z-10">
+    <nav className="bg-white border w-full h-14 shadow-sm flex flex-row justify-around items-center p-2 text-2xl sticky lg:fixed top-0 z-10 lg:justify-evenly">
       <img className="w-28 mt-1" src="/definitive.png" />
-      <input type="text" className="hidden lg:flex rounded-md border-2"></input>
-      <Link href="/">
-        <FontAwesomeIcon icon={faHome}></FontAwesomeIcon>
-      </Link>
-      <i className="far fa-paper-plane"></i>
-      <i className="far fa-compass"></i>
-      <i className="far fa-heart font-light"></i>
-      <div
-        onClick={handleProfileMenu}
-        className="bg-gray-400 rounded-full w-5 h-5 relative"
-      ></div>
-      {showMenu && <ProfileMenu />}
+      <input
+        type="text"
+        className="navbar__input w-1/6 h-5/6 hidden rounded-sm border border bg-gray-100 text-center text-sm lg:flex"
+        placeholder="&#xF002; Search"
+        style={{ fontFamily: "Arial, FontAwesome" }}
+      ></input>
+      <section className="w-1/6 flex flex-row justify-evenly">
+        <Link href="/">
+          <FontAwesomeIcon icon={faHome}></FontAwesomeIcon>
+        </Link>
+        <i className="far fa-paper-plane"></i>
+        <i className="far fa-compass"></i>
+        <i className="far fa-heart font-light"></i>
+        <div
+          onClick={handleProfileMenu}
+          className="bg-gray-400 rounded-full w-5 h-5 relative"
+        ></div>
+        {showMenu && <ProfileMenu />}
+      </section>
     </nav>
   );
 };
