@@ -18,10 +18,3 @@ a {
 * {
   box-sizing: border-box;
 }
-
-.navbar__input {
-  font-family: FontAwesome;
-  font-style: normal;
-  font-weight: normal;
-  text-decoration: inherit;
-}

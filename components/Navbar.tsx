@@ -23,6 +23,7 @@ export const Navbar = () => {
         style={{ fontFamily: "Arial, FontAwesome" }}
       ></input>
       <section className="w-1/6 flex flex-row justify-evenly">
+        <button className="text-sm">Create post</button>
         <Link href="/">
           <FontAwesomeIcon icon={faHome}></FontAwesomeIcon>
         </Link>
