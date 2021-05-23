@@ -2,10 +2,11 @@ import react, { useEffect } from "react";
 import { useRouter } from "next/router";
 import Link from "next/link";
 import { useForm } from "react-hook-form";
+import axios from "axios";
 
 interface formData {
   email: string;
-  fullname: string;
+  fullName: string;
   username: string;
   password: string;
 }
@@ -27,9 +28,20 @@ function login() {
       console.log(err);
     }
   };
+  //{ username, fullName,email, password, reset }
+  console.log(errors);
+  const onSubmit = async (data) => {
+    try {
+      const resp = await axios.post(
+        "https://instagram-clone-nodejs-backend.herokuapp.com/api/users",
+        data
+      );
 
-  const onSubmit = ({ email, password, reset }) => {
-    //Manage your field values
+      console.log(resp);
+      console.log(resp.data);
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   //Next js route redirection (if you are not using Nextjs delete it)
@@ -89,18 +101,17 @@ function login() {
               <section className="flex flex-row relative">
                 <input
                   id="fullname"
-                  name="fullname"
-                  type="password"
-                  {...register("fullname", {
+                  name="fullName"
+                  type="text"
+                  {...register("fullName", {
                     required: true,
-                    pattern: /[A-Za-z0-9_]{8,50}/,
                   })}
                   className="appearance-none bg-gray-100 rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm mt-2"
                   placeholder="Full name"
                 ></input>
-                {errors.password && (
+                {errors.fullName && (
                   <i
-                    title="Password must have at least 8 characters and can't have symbols"
+                    title="This field is required"
                     className="fas fa-exclamation-circle absolute -right-6 inset-y-1/4 hover:text-red-500"
                   ></i>
                 )}
@@ -114,17 +125,16 @@ function login() {
                 <input
                   id="username"
                   name="username"
-                  type="password"
+                  type="text"
                   {...register("username", {
                     required: true,
-                    pattern: /[A-Za-z0-9_]{8,50}/,
                   })}
                   className="appearance-none bg-gray-100 rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm mt-2"
                   placeholder="Username"
                 ></input>
-                {errors.password && (
+                {errors.username && (
                   <i
-                    title="Password must have at least 8 characters and can't have symbols"
+                    title="This field is required"
                     className="fas fa-exclamation-circle absolute -right-6 inset-y-1/4 hover:text-red-500"
                   ></i>
                 )}
@@ -161,7 +171,7 @@ function login() {
               className="group relative bg-blue-400 w-full h-7 flex justify-center items-center text-sm font-medium rounded-md hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-300 text-white"
             >
               <span className="absolute left-0 inset-y-0 flex items-center pl-3 text-white font-semibold"></span>
-              Log in
+              Sign up
             </button>
           </div>
         </form>

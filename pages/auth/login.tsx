@@ -1,5 +1,6 @@
 import react, { useEffect } from "react";
 import { useRouter } from "next/router";
+import axios from "axios";
 import Link from "next/link";
 import { useForm } from "react-hook-form";
 
@@ -28,8 +29,18 @@ function login() {
     }
   };
 
-  const onSubmit = ({ email, password, reset }) => {
-    //Manage your field values
+  const onSubmit = async (data) => {
+    try {
+      const resp = await axios.post(
+        "https://instagram-clone-nodejs-backend.herokuapp.com/api/auth/login",
+        data
+      );
+
+      console.log(resp);
+      console.log(resp.data);
+    } catch (err) {
+      console.log(err.response.data);
+    }
   };
 
   //Next js route redirection (if you are not using Nextjs delete it)
