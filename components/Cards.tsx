@@ -1,35 +1,27 @@
-import {
-  faBookmark,
-  faComment,
-  faHeart,
-  faPaperPlane,
-} from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Image from "next/image";
 import React from "react";
 
-export const Cards = () => {
+export const Cards = ({ title, img, likes, comments, user }) => {
   return (
     <figure className="mt-7 lg:w-full lg:border-2 rounded-sm">
       <header className="flex flex-row justify-between p-4">
         <div className="flex flex-row justify-around items-center w-5/12">
-          <Image
+          <img
             width="30px"
             height="30px"
-            src="/t1logo.png"
+            src={user.profileImg}
             alt="card_user_logo"
             className="rounded-full"
           />
-          <span>User_Name</span>
+          <span>{user.username}</span>
         </div>
         <span className="font-bold">...</span>
       </header>
-      <Image
+      <img
         width="400px"
         height="425px"
-        src="/t1logo.png"
-        alt="card_user_logo"
-        layout="responsive"
+        src={img}
+        alt="card_user_logo  w-full"
       />
       <div className="h-15 text-2xl flex flex-row justify-between items-center pt-3 px-3">
         <div className="w-24 flex flex-row justify-between">
@@ -39,10 +31,10 @@ export const Cards = () => {
         </div>
         <i className="far fa-bookmark"></i>
       </div>
-      <span className="p-3 mb-2 text-sm font-semibold">15,678 likes</span>
+      <span className="p-3 mb-2 text-sm font-semibold">{likes.length}</span>
       <div className="flex flex-col px-3 text-sm">
         <span>
-          <span className="font-semibold">T1 LOL</span> Good team, best team
+          <span className="font-semibold">{user.username}</span> {title}
         </span>
         <span>
           <span className="font-semibold">Josedeodo </span>

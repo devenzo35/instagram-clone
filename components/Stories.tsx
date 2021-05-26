@@ -1,5 +1,5 @@
 import React from "react";
-import { Story } from "./story";
+import { Story } from "./Story";
 
 export const Stories = () => {
   return (

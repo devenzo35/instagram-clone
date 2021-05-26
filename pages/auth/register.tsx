@@ -1,4 +1,4 @@
-import react, { useEffect } from "react";
+import react, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import Link from "next/link";
 import { useForm } from "react-hook-form";
@@ -19,6 +19,7 @@ function login() {
     formState: { errors },
     reset,
   } = useForm<formData>();
+  const [error, setError] = useState(null);
 
   const handleGoogle = () => {
     //Google sing in with Firebase
@@ -37,10 +38,10 @@ function login() {
         data
       );
 
-      console.log(resp);
-      console.log(resp.data);
+      localStorage.setItem("user", JSON.stringify(resp.data));
     } catch (err) {
-      console.log(err);
+      console.log(err.response.data);
+      setError(err.response.data);
     }
   };
 
@@ -60,6 +61,11 @@ function login() {
             alt="Workflow"
           ></img>
         </div>
+        {error && (
+          <span className="block w-full text-red-500 text-center">
+            {error.msg}
+          </span>
+        )}
         <form
           onSubmit={handleSubmit(onSubmit)}
           className="mt-8 space-y-6"

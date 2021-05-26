@@ -1,4 +1,4 @@
-import react, { useEffect } from "react";
+import react, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import axios from "axios";
 import Link from "next/link";
@@ -19,6 +19,7 @@ function login() {
     formState: { errors },
     reset,
   } = useForm<formData>();
+  const [error, setError] = useState(null);
 
   const handleGoogle = () => {
     //Google sing in with Firebase
@@ -36,10 +37,10 @@ function login() {
         data
       );
 
-      console.log(resp);
-      console.log(resp.data);
+      localStorage.setItem("user", JSON.stringify(resp.data.user));
     } catch (err) {
-      console.log(err.response.data);
+      console.log(err);
+      setError(err.response.data);
     }
   };
 
@@ -59,13 +60,17 @@ function login() {
             alt="Workflow"
           ></img>
         </div>
+        {error && (
+          <span className="block w-full text-red-500 text-center">
+            {error.message}
+          </span>
+        )}
         <form
           onSubmit={handleSubmit(onSubmit)}
           className="mt-8 space-y-6"
           action="#"
           method="POST"
         >
-          <input type="hidden" name="remember" value="true"></input>
           <div className="rounded-xs shadow-sm -space-y-px">
             <div>
               <label htmlFor="email-address" className="sr-only">
