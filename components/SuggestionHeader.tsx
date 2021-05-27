@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { userContext } from "../context/userContext";
 
 export const SuggestionHeader = () => {
-  const usersaved = useContext(userContext);
+  const [usersaved, setUserSaved] = useContext(userContext);
 
   if (!usersaved) return <span>Loading...</span>;
   const { profileImg, username, fullName } = JSON.parse(usersaved);

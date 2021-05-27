@@ -5,7 +5,7 @@ import axios from "axios";
 
 export default function Profile() {
   const uploadFile = useRef(null);
-  const usersaved = useContext(userContext);
+  const [usersaved, setUserSaved] = useContext(userContext);
 
   if (!usersaved) return <span>Loading...</span>;
   const { profileImg, posts, followers, following, username, fullName, id } =
@@ -28,7 +28,7 @@ export default function Profile() {
     });
 
     const userUpdated = await axios.get(baseUrl + `users/${id}`);
-
+    setUserSaved(JSON.stringify(userUpdated.data));
     localStorage.setItem("user", JSON.stringify(userUpdated.data));
   };
 
@@ -81,9 +81,9 @@ export default function Profile() {
           </li>
         </nav>
 
-        {posts.map((post) => {
+        {/* {posts.map((post) => {
           return <img src={post} alt={post}></img>;
-        })}
+        })} */}
       </div>
     </span>
   );

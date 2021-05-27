@@ -24,9 +24,10 @@ export default function Home() {
       <div className="lg:w-6/12 lg:mt-14">
         <Stories />
         {posts &&
-          posts.map(({ title, img, likes, comments, user }) => {
+          posts.map(({ id, title, img, likes, comments, user }) => {
             return (
               <Cards
+                key={id}
                 title={title}
                 img={img}
                 likes={likes}

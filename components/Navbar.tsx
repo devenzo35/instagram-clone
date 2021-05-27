@@ -5,10 +5,11 @@ import { faHome } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { ProfileMenu } from "./ProfileMenu";
 import { userContext } from "../context/userContext";
+import { NavInput } from "./NavInput";
 
 export const Navbar = () => {
   const [showMenu, setShowMenu] = useState(false);
-  const usersaved = useContext(userContext);
+  const [usersaved, setUserSaved] = useContext(userContext);
 
   if (!usersaved) return <span>Loading...</span>;
   const { profileImg } = JSON.parse(usersaved);
@@ -20,16 +21,13 @@ export const Navbar = () => {
       <Link href="/">
         <img className="w-28 mt-1 cursor-pointer" src="/definitive.png" />
       </Link>
-      <input
-        type="text"
-        className="navbar__input w-1/6 h-5/6 hidden rounded-sm border border bg-gray-100 text-center text-sm lg:flex"
-        placeholder="&#xF002; Search"
-        style={{ fontFamily: "Arial, FontAwesome" }}
-      ></input>
+      <NavInput />
       <section className="w-1/6 flex flex-row justify-evenly">
-        <button className="text-sm">Create post</button>
+        {/* <button className="text-sm">Create post</button> */}
         <Link href="/">
-          <FontAwesomeIcon icon={faHome}></FontAwesomeIcon>
+          <a href="/">
+            <FontAwesomeIcon icon={faHome} />
+          </a>
         </Link>
         <i className="far fa-paper-plane"></i>
         <i className="far fa-compass"></i>
@@ -38,7 +36,7 @@ export const Navbar = () => {
           src={profileImg}
           alt="profileImg"
           onClick={handleProfileMenu}
-          className="bg-gray-400 rounded-full w-5 h-5 relative cursor-pointer"
+          className="bg-gray-400 rounded-full w-6 h-6 relative cursor-pointer"
         ></img>
         {showMenu && <ProfileMenu />}
       </section>

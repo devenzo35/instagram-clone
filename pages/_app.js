@@ -10,7 +10,7 @@ function MyApp({ Component, pageProps }) {
     setUser(localStorage.getItem("user"));
   }, []);
   return (
-    <userContext.Provider value={user}>
+    <userContext.Provider value={[user, setUser]}>
       <Component {...pageProps} />
     </userContext.Provider>
   );
