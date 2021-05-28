@@ -38,6 +38,7 @@ function login() {
       );
 
       localStorage.setItem("user", JSON.stringify(resp.data.user));
+      localStorage.setItem("token", JSON.stringify(resp.data.token));
     } catch (err) {
       console.log(err);
       setError(err.response.data);

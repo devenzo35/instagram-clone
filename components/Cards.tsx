@@ -3,7 +3,7 @@ import React from "react";
 
 export const Cards = ({ title, img, likes, comments, user }) => {
   return (
-    <figure className="mt-7 lg:w-full lg:border-2 rounded-sm">
+    <figure className="mt-7 lg:w-full lg:border-2 lg:bg-white rounded-sm">
       <header className="flex flex-row justify-between p-4">
         <div className="flex flex-row justify-around items-center w-5/12">
           <img
@@ -17,12 +17,7 @@ export const Cards = ({ title, img, likes, comments, user }) => {
         </div>
         <span className="font-bold">...</span>
       </header>
-      <img
-        width="400px"
-        height="425px"
-        src={img}
-        alt="card_user_logo  w-full"
-      />
+      <img src={img} alt="card user logo" className="w-full" />
       <div className="h-15 text-2xl flex flex-row justify-between items-center pt-3 px-3">
         <div className="w-24 flex flex-row justify-between">
           <i className="far fa-heart"></i>

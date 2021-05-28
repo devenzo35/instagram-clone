@@ -8,18 +8,20 @@ export const SuggestionHeader = () => {
   const { profileImg, username, fullName } = JSON.parse(usersaved);
 
   return (
-    <section className="flex flex-row justify-between items-center w-full px-3">
-      <img
-        src={profileImg}
-        alt="profileImg"
-        className="rounded-full w-20 h-20 bg-gray-400"
-      ></img>
-      <div className="flex flex-col">
-        <span>{username}</span>
+    <div className="flex flex-row justify-between items-center w-full px-3">
+      <section className="flex items-center">
+        <img
+          src={profileImg}
+          alt="profileImg"
+          className="rounded-full w-20 h-20 bg-gray-400 border"
+        ></img>
+        <div className="flex flex-col ml-10">
+          <span className="font-semibold text-sm">{username}</span>
 
-        <span>{fullName}</span>
-      </div>
-      <a className="text-blue-900">Switch</a>
-    </section>
+          <span className="text-gray-400 text-sm">{fullName}</span>
+        </div>
+      </section>
+      <a className="text-blue-400 text-xs font-bold">Switch</a>
+    </div>
   );
 };

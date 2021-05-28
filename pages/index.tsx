@@ -4,7 +4,7 @@ import { Navbar } from "../components/Navbar";
 import { Stories } from "../components/Stories";
 import { Suggestions } from "../components/Suggestions";
 import axios from "axios";
-import { NewComponent } from "../components/NewComponent";
+import { CreatePostForm } from "../components/CreatePostForm";
 
 export default function Home() {
   const [posts, setPosts] = useState([]);
@@ -20,8 +20,7 @@ export default function Home() {
   return (
     <div className="bg-gray-100 lg:flex lg:flex-row lg:justify-center">
       <Navbar />
-      <NewComponent />
-      <div className="lg:w-6/12 lg:mt-14">
+      <div className="lg:w-5/12 lg:mt-14">
         <Stories />
         {posts &&
           posts.map(({ id, title, img, likes, comments, user }) => {
